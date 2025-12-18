@@ -1,0 +1,165 @@
+{
+  "info": {
+    "name": "ATS FULL API COLLECTION",
+    "_postman_id": "12345678-abcd-efab-cdef-1234567890",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\":\"test@test.com\",\n  \"password\":\"123\",\n  \"role\":\"CANDIDATE\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/auth/register",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\":\"test@test.com\",\n  \"password\":\"123\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/auth/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["auth", "login"]
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Jobs",
+      "item": [
+        {
+          "name": "Create Job",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\":\"Backend Developer\",\n  \"description\":\"Node.js Development\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/jobs",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["jobs"]
+            }
+          }
+        },
+
+        {
+          "name": "List Jobs",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/jobs",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["jobs"]
+            }
+          }
+        },
+
+        {
+          "name": "Close Job",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/jobs/1/close",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["jobs", "1", "close"]
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Applications",
+      "item": [
+        {
+          "name": "Apply To Job",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobId\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/applications/apply",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["applications", "apply"]
+            }
+          }
+        },
+
+        {
+          "name": "Change Stage",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nextStage\": \"SCREENING\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/applications/1/stage",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["applications", "1", "stage"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
