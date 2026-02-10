@@ -1,11 +1,5 @@
-import { PrismaClient } from "@prisma/client";
-import dotenv from "dotenv";
-dotenv.config();
+// DEPRECATED: Use src/utils/prisma.js instead
+// This file is kept for backward compatibility only
+import prisma from "./utils/prisma.js";
 
-export const prisma = new PrismaClient({
-  datasources: {
-    db: {
-      url: process.env.DATABASE_URL
-    }
-  }
-});
+export { prisma };

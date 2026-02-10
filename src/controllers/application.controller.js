@@ -52,17 +52,4 @@ export async function changeStage(req, res) {
     });
   }
 }
-export async function getJobById(req, res) {
-  const jobId = Number(req.params.jobId);
-
-  const job = await prisma.job.findUnique({
-    where: { id: jobId },
-  });
-
-  if (!job) {
-    return res.status(404).json({ message: "Job not found" });
-  }
-
-  res.json(job);
-}
 
